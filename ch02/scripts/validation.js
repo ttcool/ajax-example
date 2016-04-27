@@ -5,6 +5,23 @@ function initPage(){
   document.getElementById(username).onblur = checkUsername;
 }
 
+//创建请求对象
+function createRequest(){
+  try{
+    request = new XMLHttpRequest();
+  }catch(tryMS){
+    try{
+      request = new ActiveXObject("Msxml2.XMLHTTP");
+    }catch(otherMS){
+      try{
+        request = new ActiveXObject("Microsoft.XMLHTTP");
+      }catch(failed){
+        request = null;
+      }
+    }
+  }
+  return request;
+}
   //检查用户名是否注册
 function checkUsername(){
 
@@ -12,5 +29,5 @@ function checkUsername(){
 
 //浏览器得到服务器的响应后更新页面
 function showUsernameStatus(){
-  
+
 }
