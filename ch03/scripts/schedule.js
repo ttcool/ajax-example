@@ -16,11 +16,11 @@ function initPage(){
     document.getElementById("navigation").getElementsByTagName("a");
   for (var i=0; i<buttons.length; i++) {
     var currentBtn = buttons[i];
-    currentBtn.onmouseover = showHint;
-    currentBtn.onmouseout = hideHint;
+    addEventHandler(currentBtn,"mouseover",showHint);
+    addEventHandler(currentBtn,"mouseout",hideHint);
     currentBtn.onclick = showTab;
-    currentBtn.onmouseover = buttonOver;
-    currentBtn.onmouseout = buttonOut;
+    addEventHandler(currentBtn,"mouseover",buttonOver);
+    addEventHandler(currentBtn,"mouseout",buttonOut);
   }
 
 
