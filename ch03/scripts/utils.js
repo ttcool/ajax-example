@@ -22,3 +22,15 @@ function addEventHandler(obj,eventName,handler){
     obj.addEventListener(eventName,handler,false);
   }
 }
+
+function getActivatedObject(e){
+  var obj;
+  if (!e){
+    obj = window.event.srcElement;
+  }else if(e.srcElement){
+    obj = e.srcElement;
+  }else {
+    obj = e.target;
+  }
+  return obj;
+}

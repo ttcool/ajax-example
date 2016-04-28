@@ -28,12 +28,14 @@ function initPage(){
 
 var welcomePaneShowing = true;
 
-function showHint(){
+function showHint(e){
   if(!welcomePaneShowing){
     return;
   }
+
+  var me = getActivatedObject(e);
 //this指示调用这个函数的对象，也就是说用户把鼠标移到了该图像上
-  switch(this.title){
+  switch(me.title){
     case "beginners":
        var hintText = "Just getting started? Come Join us!";
        break;
@@ -52,15 +54,16 @@ function showHint(){
 
 }
 
-function hideHint(){
+function hideHint(e){
   if (welcomePaneShowing){
     var contentPane = document.getElementById("content");
     contentPane.innerHTML="<h3>Click a tab to display the course schedule for the class</h3>";
   }
 }
 
-function showTab() {
-  var selectedTab = this.title;
+function showTab(e) {
+  var me = getActivatedObject(e);
+  var selectedTab = me.title;
   if (selectedTab == "welcome") {
     welcomePaneShowing = true;
     document.getElementById("content").innerHTML =
@@ -97,9 +100,11 @@ function showSchedule() {
   }
 }
 
-function buttonOver() {
-  this.className = "active";
+function buttonOver(e) {
+  var me = getActivatedObject(e);
+  me.className = "active";
 }
-function buttonOut() {
-  this.className = "";
+function buttonOut(e) {
+  var me = getActivatedObject(e);
+  me.className = "";
 }
